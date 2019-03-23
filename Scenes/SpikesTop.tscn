@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Hazards.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Environment/spikes_top.png" type="Texture" id=2]
+
+[node name="SpikesTop" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.8125, 0.0634766, 0.0634766, 1 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( -47.8877, 25.732, -35.2829, -22.7847, -33.1424, -26.8278, -27.4346, -26.8278, -15.781, 18.5972, -3.65186, -26.3521, -1.98707, -27.0656, 2.76947, -26.5899, 14.423, 18.5972, 25.8387, -25.6386, 27.5035, -27.0656, 32.9735, -26.8278, 46.054, 25.732 )
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+
